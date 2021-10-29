@@ -9,10 +9,10 @@ function Header() {
                     <div class="row">
                         <div class="col-lg-12">
                             <nav class="navbar navbar-expand-lg">   
-                            <a class="navbar-brand" href="#">
+                            <a class="navbar-brand" href="/">
                                 <img src="assets/images/logo.svg" alt="Logo" />
                             </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="/navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
                                 <span class="toggler-icon"></span>
@@ -39,10 +39,10 @@ function Header() {
                             <div class="navbar-social d-none d-sm-flex align-items-center">
                                 <span>FOLLOW US</span>
                                 <ul>
-                                    <li><a href="#"><i class="lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni-twitter-original"></i></a></li>
-                                    <li><a href="#"><i class="lni-instagram-original"></i></a></li>
-                                    <li><a href="#"><i class="lni-linkedin-original"></i></a></li>
+                                    <li><a href="/"><i class="lni-facebook-filled"></i></a></li>
+                                    <li><a href="/"><i class="lni-twitter-original"></i></a></li>
+                                    <li><a href="/"><i class="lni-instagram-original"></i></a></li>
+                                    <li><a href="/"><i class="lni-linkedin-original"></i></a></li>
                                 </ul>
                             </div>
                         </nav> 
@@ -58,7 +58,7 @@ function Header() {
                                 <h3 class="header-title">Handcrafted Landing Page for Startups and SaaS Businesses</h3>
                                 <p class="text">A simple, customizable, and, beautiful SaaS business focused landing page to make your project closer to launch!</p>
                                 <ul class="header-btn rounded-buttons">
-                                    <li><a class="main-btn rounded-three" href="#">GET IN TOUCH</a></li>
+                                    <li><a class="main-btn rounded-three" href="/">GET IN TOUCH</a></li>
                                     <li><a class="main-btn rounded-four video-popup" href="../../watch.html?v=r44RKWyfcFw">WATCH THE VIDEO <i class="lni-play"></i></a></li>
                                 </ul>
                             </div> 

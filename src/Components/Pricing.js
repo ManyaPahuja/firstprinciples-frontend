@@ -29,7 +29,7 @@ function Pricing() {
                                     </ul>
                                 </div>
                                 <div class="pricing-btn text-center">
-                                    <a class="main-btn" href="#">GET STARTED</a>
+                                    <a class="main-btn" href="/">GET STARTED</a>
                                 </div>
                                 <div class="buttom-shape">
                                     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 350 112.35">
@@ -72,7 +72,7 @@ function Pricing() {
                                 </ul>
                             </div>
                             <div class="pricing-btn text-center">
-                                <a class="main-btn" href="#">GET STARTED</a>
+                                <a class="main-btn" href="/">GET STARTED</a>
                             </div>
                             <div class="buttom-shape">
                                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 350 112.35">
@@ -113,7 +113,7 @@ function Pricing() {
                             </ul>
                         </div>
                         <div class="pricing-btn text-center">
-                            <a class="main-btn" href="#">GET STARTED</a>
+                            <a class="main-btn" href="/">GET STARTED</a>
                         </div>
                         <div class="buttom-shape">
                             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 350 112.35">
