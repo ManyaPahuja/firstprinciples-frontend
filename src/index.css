@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.single-testimonial {
+  position: relative;
+}
+.edit-del-buttons {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+.edit-btn, .del-btn {
+  margin: 0 5px;
+  cursor: pointer;
+}
