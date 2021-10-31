@@ -10,6 +10,7 @@ function Testimonial() {
     const [postBy, setPostBy] = useState("");
     const [description, setDescription] = useState("");
     const [photo, setPhoto] = useState("");
+    const [id, setId] = useState();
     
     const [testimonialArray, setTestimonialArray] = useState([]);
 
@@ -77,26 +78,46 @@ function Testimonial() {
         }
     }
 
-    // const updateTestimonial = async (id) => {
-    //     try {
-    //         const response = await Axios.put(`https://firstprinciples-backend.herokuapp.com/api/update-testimonial/${id}`);
-    //         //getTestimonials();
-    //         toast.success("Succesfully updated a testimonial")
-    //     } catch(err) {
-    //         toast.error("Unable to update a testimonial")
-    //     }
-    // }
+    const setItemData = (e, item) => {
+        setName(item.name);
+        setId(item._id);
+        setPostBy(item.postBy);
+        setDescription(item.description)
+    }
+
+    const clearItemData = (e) => {
+        setName("");
+        setId("");
+        setPostBy("");
+        setDescription("");
+        setPhoto("");
+    }
+
+    const updateTestimonial = async (e) => {
+        e.preventDefault()
+        try {
+            const obj = {
+                name: name,
+                postBy: postBy,
+                description: description,
+            }
+            const response = await Axios.put(`https://firstprinciples-backend.herokuapp.com/api/update-testimonial/${id}`, obj);
+            const newArr = testimonialArray.filter(item => item._id !== response.data.data._id)
+            newArr.push(response.data.data)
+            setTestimonialArray(newArr)
+            toast.success("Succesfully updated a testimonial")
+        } catch(err) {
+            toast.error("Unable to update a testimonial")
+        }
+    }
 
 
     const testimonialDiv = testimonialArray.filter(it => it.active === 1).map(item => {
             return (
-                <div className="col-lg-4" >
-                    <div className="single-testimonial mt-30 mb-30 text-center">
+                <div className="col-lg-4" id={item.id}>
+                    <div className="single-testimonial mt-30 mb-30 text-center" style={{cursor: "pointer"}} data-bs-toggle="modal" data-bs-target="#updateModal" onClick={(e) => setItemData(e, item)}>
                         <div className="edit-del-buttons">
-                            {/* <button className="edit-btn" onClick={() => updateTestimonial(item)} data-bs-toggle="modal" data-bs-target="#testimonialModal">
-                                edit
-                            </button> */}
-                            <div className="del-btn" onClick={() => deleteTestimonial(item._id)} >del</div>
+                            <div className="del-btn" onClick={() => deleteTestimonial(item._id)} >Del</div>
                         </div>
                         <div className="testimonial-image">
                             <img src="assets/images/author-3.jpg" alt="Author" />
@@ -130,7 +151,7 @@ function Testimonial() {
                     <div className="col-lg-6">
                         <div className="section-title text-center pb-10">
                             <h4 className="title">Testimonial</h4>
-                            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#testimonialModal">
+                            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#testimonialModal" onClick={clearItemData}>
                                 Add Testimonial
                             </button>
                             <p className="text">Stop wasting time and money designing and managing a website that doesn’t get results. Happiness guaranteed!</p>
@@ -149,7 +170,7 @@ function Testimonial() {
         </section>
 
         <div className="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
+            <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Create Testimonial</h5>
@@ -181,6 +202,37 @@ function Testimonial() {
             </form>
             </div>
         </div>
+        </div>
+
+        <div className="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">Create Testimonial</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form onSubmit={updateTestimonial}>
+                        <div className="modal-body">
+                            <div className="row">
+                                <div className="col">
+                                    <input type="text" className="form-control" placeholder="Name" aria-label="Name"  value={name} onChange={(e) => setName(e.target.value)} required/>
+                                </div>
+                                <div className="col">
+                                    <input type="text" className="form-control" placeholder="Posted By" aria-label="PostedBy"  value={postBy} onChange={(e) => setPostBy(e.target.value)} required/>
+                                </div>
+                            </div>
+                            <div className="mt-3 form-floating">
+                                <textarea className="form-control" placeholder="please write your comments" id="testimonial-textarea"  value={description} onChange={(e) => setDescription(e.target.value)} required></textarea>
+                                <label for="testimonial-textarea">Description</label>
+                            </div>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" className="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         </>
     )
