@@ -115,8 +115,9 @@ function Testimonial() {
     const testimonialDiv = testimonialArray.filter(it => it.active === 1).map(item => {
             return (
                 <div className="col-lg-4" id={item.id}>
-                    <div className="single-testimonial mt-30 mb-30 text-center" style={{cursor: "pointer"}} data-bs-toggle="modal" data-bs-target="#updateModal" onClick={(e) => setItemData(e, item)}>
+                    <div className="single-testimonial mt-30 mb-30 text-center" style={{cursor: "pointer"}}>
                         <div className="edit-del-buttons">
+                            <div className="edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" onClick={(e) => setItemData(e, item)}>Edit</div>
                             <div className="del-btn" onClick={() => deleteTestimonial(item._id)} >Del</div>
                         </div>
                         <div className="testimonial-image">
