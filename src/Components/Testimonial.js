@@ -121,7 +121,7 @@ function Testimonial() {
                             <div className="del-btn" onClick={() => deleteTestimonial(item._id)} >Del</div>
                         </div>
                         <div className="testimonial-image">
-                            <img src="assets/images/author-3.jpg" alt="Author" />
+                            <img src="assets/images/author-2.jpg" alt="Author" />
                         </div>
                         <div className="testimonial-content">
                             <p className="text">{item.description}</p>
